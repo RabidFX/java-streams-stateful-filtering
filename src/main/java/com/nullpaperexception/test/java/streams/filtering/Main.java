@@ -14,6 +14,8 @@ public class Main {
     public static void main(String[] args) throws RunnerException {
         final Options opt = new OptionsBuilder()
                 .include(Benchmarks.class.getSimpleName())
+                .warmupIterations(5)
+                .measurementIterations(5)
                 .forks(1)
                 .build();
 
