@@ -5,6 +5,7 @@ import com.nullpaperexception.test.java.streams.filtering.beans.FruitType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 /**
@@ -27,10 +28,10 @@ public abstract class Generator {
      * 
      * @param expected The number of Fruit expected.
      * 
-     * @return A List of the genrated Fruit
+     * @return A List of the generated Fruit
      */
     public List<Fruit> generateOrderedNoPear(int expected) {
-        return generateOrderedList(expected, FruitType.OTHER);
+        return generateOrderedList(expected, (i) -> FruitType.OTHER);
     }
 
     /**
@@ -38,24 +39,35 @@ public abstract class Generator {
      * 
      * @param expected The number of pears expected.
      * 
-     * @return A List of the genrated Fruit
+     * @return A List of the generated Fruit
      */
     public List<Fruit> generateOrderedAllPears(int expected) {
-        return generateOrderedList(expected, FruitType.PEAR);
+        return generateOrderedList(expected, (i) -> FruitType.PEAR);
     }
     
+    
+    /**
+     * Generate an expected number of assorted fruits.
+     * 
+     * @param expected The number of fruits expected.
+     * 
+     * @return A List of the generated Fruit
+     */
+    public List<Fruit> generateOrderedMixed(int expected) {
+        return generateOrderedList(expected, (i) -> i % 2 == 0 ? FruitType.PEAR : FruitType.OTHER);
+    }
     
     /**
      * Common method for list generation.
      * 
      * @param expected The number of expected fruits.
-     * @param type The type of the expected fruits.
+     * @param typeCalculator A Function determining the type of fruits we want based on the position in the list.
      * 
      * @return A List of the genrated Fruit
      */
-    private List<Fruit> generateOrderedList(int expected, FruitType type) {
+    private List<Fruit> generateOrderedList(int expected, Function<Integer, FruitType> typeCalculator) {
         final List<Fruit> result = new ArrayList<>(expected);
-        IntStream.range(1, expected).forEach(size -> result.add(generateFruit(size, type)));
+        IntStream.range(1, expected).forEach(size -> result.add(generateFruit(size, typeCalculator.apply(size))));
         return Collections.unmodifiableList(result);
     }
 }

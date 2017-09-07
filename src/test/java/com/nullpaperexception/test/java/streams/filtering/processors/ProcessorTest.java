@@ -60,4 +60,18 @@ public abstract class ProcessorTest {
         assertEquals(oracle, output);   
     }
     
+    @Test
+    public void testProcessMixedWithTinyPear() {
+
+        final List<Fruit> immutable = generator.generateOrderedMixed(EXPECTED * 2);
+        final List<Fruit> oracle = new ArrayList<>(immutable).subList(0, EXPECTED);
+        final List<Fruit> input = new ArrayList<>(immutable);
+        input.add(generator.generateFruit(0, FruitType.PEAR));
+        Collections.shuffle(input);
+        
+        final List<Fruit> output = processor.process(input, EXPECTED);
+        
+        assertEquals(oracle, output);   
+    }
+    
 }

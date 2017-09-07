@@ -1,32 +1,28 @@
 package com.nullpaperexception.test.java.streams.filtering.benchmarks;
 
 import com.nullpaperexception.test.java.streams.filtering.beans.Fruit;
-import com.nullpaperexception.test.java.streams.filtering.beans.generators.SimpleFruitGenerator;
-import com.nullpaperexception.test.java.streams.filtering.processors.StraightforwardProcessor;
+import com.nullpaperexception.test.java.streams.filtering.beans.generators.Generator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.State;
 
 /**
- * Benchmarking class
+ * Abstract class contraining some common code for benchmarks.
  */
-@State(Scope.Benchmark)
-public class Benchmarks {
+public abstract class Benchmarks {
+    
+    protected static final int SMALL_NUMBER_OF_FRUITS = 20;
+    protected static final int MEDIUM_NUMBER_OF_FRUITS = 200;
+    protected static final int LARGE_NUMBER_OF_FRUITS = 2000;
 
-    private static final int SMALL_NUMBER_OF_FRUITS = 20;
+    protected final List<Fruit> SMALL_PEARLESS_LIST = getGenerator().generateOrderedNoPear(SMALL_NUMBER_OF_FRUITS);
+    protected final List<Fruit> SMALL_MIXED_LIST = getGenerator().generateOrderedMixed(SMALL_NUMBER_OF_FRUITS);
+    protected final List<Fruit> SMALL_PEAR_LIST = getGenerator().generateOrderedAllPears(SMALL_NUMBER_OF_FRUITS);
+    protected final List<Fruit> MEDIUM_PEARLESS_LIST = getGenerator().generateOrderedNoPear(MEDIUM_NUMBER_OF_FRUITS);
+    protected final List<Fruit> MEDIUM_MIXED_LIST = getGenerator().generateOrderedMixed(MEDIUM_NUMBER_OF_FRUITS);
+    protected final List<Fruit> MEDIUM_PEAR_LIST = getGenerator().generateOrderedAllPears(MEDIUM_NUMBER_OF_FRUITS);
+    protected final List<Fruit> LARGE_PEARLESS_LIST = getGenerator().generateOrderedNoPear(LARGE_NUMBER_OF_FRUITS);
+    protected final List<Fruit> LARGE_MIXED_LIST = getGenerator().generateOrderedMixed(LARGE_NUMBER_OF_FRUITS);
+    protected final List<Fruit> LARGE_PEAR_LIST = getGenerator().generateOrderedAllPears(LARGE_NUMBER_OF_FRUITS);
 
-    private final List<Fruit> SMALL_PEARLESS_LIST = new SimpleFruitGenerator().generateOrderedNoPear(SMALL_NUMBER_OF_FRUITS);
-
-    @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void straightforwardSimpleFruit() {
-        new StraightforwardProcessor().process(SMALL_PEARLESS_LIST, SMALL_NUMBER_OF_FRUITS);
-    }    
-
+    protected abstract Generator getGenerator();    
+    
 }
