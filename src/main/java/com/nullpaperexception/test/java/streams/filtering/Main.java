@@ -1,6 +1,5 @@
 package com.nullpaperexception.test.java.streams.filtering;
 
-import com.nullpaperexception.test.java.streams.filtering.benchmarks.Benchmarks;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -13,7 +12,7 @@ public class Main {
     
     public static void main(String[] args) throws RunnerException {
         final Options opt = new OptionsBuilder()
-                .include(Benchmarks.class.getSimpleName())
+                .include(".*Benchmark")
                 .warmupIterations(5)
                 .measurementIterations(5)
                 .forks(1)

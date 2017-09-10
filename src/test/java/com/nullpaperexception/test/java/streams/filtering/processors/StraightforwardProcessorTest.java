@@ -12,5 +12,4 @@ public class StraightforwardProcessorTest extends ProcessorTest {
         processor = new StraightforwardProcessor();
     }
     
-        
 }
