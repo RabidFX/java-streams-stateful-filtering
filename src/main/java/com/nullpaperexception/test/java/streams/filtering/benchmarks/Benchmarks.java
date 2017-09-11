@@ -36,22 +36,64 @@ public abstract class Benchmarks {
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void smallNoPear() {
+    public void simpleSmallNoPear() {
         getTestedProcessor().process(getTestSuite(Generator.SMALL_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void smallAllPears() {
+    public void simpleSmallAllPears() {
         getTestedProcessor().process(getTestSuite(Generator.SMALL_PEAR_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void smallMixed() {
+    public void simpleSmallMixed() {
         getTestedProcessor().process(getTestSuite(Generator.SMALL_MIXED_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    } 
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void simpleMediumNoPear() {
+        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    }
+
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void simpleMediumAllPears() {
+        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEAR_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void simpleMediumMixed() {
+        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_MIXED_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    } 
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void simpleLargeNoPear() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    }
+
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void simpleLargeAllPears() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEAR_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void simpleLargeMixed() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     } 
     
     @Setup
@@ -62,7 +104,7 @@ public abstract class Benchmarks {
                
         final Generator simpleGenerator = new SimpleFruitGenerator();
         for (int i = 0; i < 9; i++) {
-            testSuites.put(new BenchType(i, SIMPLE_FRUIT_TYPE), simpleGenerator.generate(i));
+            testSuites.put(new BenchType(i, SIMPLE_FRUIT_TYPE), simpleGenerator.generateShuffled(i));
         }
     }
     
