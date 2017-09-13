@@ -1,10 +1,10 @@
 package com.nullpaperexception.test.java.streams.filtering.benchmarks;
 
 import com.nullpaperexception.test.java.streams.filtering.beans.Fruit;
+import com.nullpaperexception.test.java.streams.filtering.beans.generators.ComplexFruitGenerator;
 import com.nullpaperexception.test.java.streams.filtering.beans.generators.Generator;
 import com.nullpaperexception.test.java.streams.filtering.beans.generators.SimpleFruitGenerator;
 import com.nullpaperexception.test.java.streams.filtering.processors.Processor;
-import com.nullpaperexception.test.java.streams.filtering.processors.StraightforwardProcessor;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +30,7 @@ public abstract class Benchmarks {
         
     // Fruit types.
     protected static final int SIMPLE_FRUIT_TYPE = 0;
+    protected static final int COMPLEX_FRUIT_TYPE = 0;
     
     private Map<BenchType, List<Fruit>> testSuites;
     
@@ -96,15 +97,82 @@ public abstract class Benchmarks {
         getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     } 
     
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexSmallNoPear() {
+        getTestedProcessor().process(getTestSuite(Generator.SMALL_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexSmallAllPears() {
+        getTestedProcessor().process(getTestSuite(Generator.SMALL_PEAR_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexSmallMixed() {
+        getTestedProcessor().process(getTestSuite(Generator.SMALL_MIXED_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    } 
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexMediumNoPear() {
+        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    }
+
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexMediumAllPears() {
+        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEAR_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexMediumMixed() {
+        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_MIXED_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    } 
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexLargeNoPear() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    }
+
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexLargeAllPears() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEAR_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexLargeMixed() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    }
+    
     @Setup
     public void setup() {
         
         // Size of the map is number of list types * number of generators.
-        testSuites = new HashMap<>(9);
+        testSuites = new HashMap<>(2 * Generator.TOTAL_LIST_TYPES);
                
         final Generator simpleGenerator = new SimpleFruitGenerator();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < Generator.TOTAL_LIST_TYPES; i++) {
             testSuites.put(new BenchType(i, SIMPLE_FRUIT_TYPE), simpleGenerator.generateShuffled(i));
+        }
+        final Generator complexGenerator = new ComplexFruitGenerator();
+        for (int i = 0; i < Generator.TOTAL_LIST_TYPES; i++) {
+            testSuites.put(new BenchType(i, COMPLEX_FRUIT_TYPE), complexGenerator.generateShuffled(i));
         }
     }
     
