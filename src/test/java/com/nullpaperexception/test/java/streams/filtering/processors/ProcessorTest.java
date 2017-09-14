@@ -75,4 +75,18 @@ public abstract class ProcessorTest {
         assertEquals(oracle, output);   
     }
     
+    @Test
+    public void testProcessFewMixedFruits() {
+
+        final List<Fruit> immutable = GENERATOR.generate(Generator.SMALL_MIXED_LIST);
+        final List<Fruit> oracle = new ArrayList<>(immutable);
+        final List<Fruit> input = new ArrayList<>(immutable);
+        input.add(GENERATOR.generateFruit(0, FruitType.PEAR));
+        Collections.shuffle(input);
+        
+        final List<Fruit> output = processor.process(input, Benchmarks.SMALL_NUMBER_OF_FRUITS * 2);
+        
+        assertEquals(oracle, output);   
+    }
+    
 }
