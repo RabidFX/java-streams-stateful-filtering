@@ -12,5 +12,6 @@ Method | Contributor
 Comparator hack | [xenteros](https://stackoverflow.com/users/4723795/xenteros) 
 Comaprator hack with dummy | [yegodm](https://stackoverflow.com/users/1654233/yegodm)
 Custom collector | [Eugene](https://stackoverflow.com/users/1059372/eugene)
+Indexed removal | [Holger](https://stackoverflow.com/users/2711488/holger)
 Stateful predicate | [pedromss](https://stackoverflow.com/users/2716383/pedromss)
 Straightforward approach | [Misha](https://stackoverflow.com/users/3920048/misha)
