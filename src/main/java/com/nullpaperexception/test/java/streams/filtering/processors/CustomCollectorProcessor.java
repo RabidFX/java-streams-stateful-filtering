@@ -15,7 +15,7 @@ public class CustomCollectorProcessor extends Processor {
 
     @Override
     public List<Fruit> process(List<Fruit> input, int expected) {
-        return input.stream().collect(exceptFirstCollector(f -> this.isPear(f), expected, (f1, f2) -> this.compareSize(f1, f2)));
+        return input.stream().collect(exceptFirstCollector(Processor::isPear, expected, Processor::compareSize));
     }
 
     private static <T> Collector<T, ?, List<T>> exceptFirstCollector(Predicate<T> predicate, int size, Comparator<T> comparator) {

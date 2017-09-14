@@ -26,7 +26,7 @@ public abstract class Processor {
      * 
      * @return True if it's FruitType is PEAR, false otherwise.
      */
-    protected boolean isPear(Fruit fruit) {
+    protected static boolean isPear(Fruit fruit) {
         return FruitType.PEAR.equals(fruit.getType());
     }
     
@@ -38,7 +38,7 @@ public abstract class Processor {
      * 
      * @return True if it's FruitType is PEAR, false otherwise.
      */
-    protected int compareSize(Fruit f1, Fruit f2) {
+    protected static int compareSize(Fruit f1, Fruit f2) {
         return f1 == null ? 1 : f2 == null ? -1 : f1.getSize().compareTo(f2.getSize());
     }
 }

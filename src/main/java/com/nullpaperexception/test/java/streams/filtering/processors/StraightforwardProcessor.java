@@ -16,15 +16,15 @@ public class StraightforwardProcessor extends Processor {
     public List<Fruit> process(List<Fruit> input, int expected) {
         
         final Optional<Fruit> smallestPear = input.stream()
-            .filter(this::isPear)
-            .min(this::compareSize);
+            .filter(Processor::isPear)
+            .min(Processor::compareSize);
 
         final Stream<Fruit> withoutSmallestPear = smallestPear
             .map(p -> input.stream().filter(f -> f != p))
             .orElseGet(input::stream);
 
         return withoutSmallestPear
-            .sorted(Comparator.comparing(Fruit::getSize))
+            .sorted(Processor::compareSize)
             .limit(expected)
             .collect(Collectors.toList());
     }
