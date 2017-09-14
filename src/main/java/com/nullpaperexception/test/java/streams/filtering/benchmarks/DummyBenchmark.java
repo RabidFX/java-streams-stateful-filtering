@@ -4,9 +4,9 @@ import com.nullpaperexception.test.java.streams.filtering.processors.DummyProces
 import com.nullpaperexception.test.java.streams.filtering.processors.Processor;
 
 /**
- * Temp class for test.
+ * Dummy processor benchmark made to analyse overhead.
  */
-public class DummyProcessorBenchmark extends Benchmarks {
+public class DummyBenchmark extends Benchmarks {
 
     @Override
     protected Processor getTestedProcessor() {

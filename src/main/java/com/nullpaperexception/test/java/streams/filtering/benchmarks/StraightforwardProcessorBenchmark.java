@@ -4,7 +4,7 @@ import com.nullpaperexception.test.java.streams.filtering.processors.Processor;
 import com.nullpaperexception.test.java.streams.filtering.processors.StraightforwardProcessor;
 
 /**
- * Benchmarking class
+ * Straightforward solution benchmarking class
  */
 public class StraightforwardProcessorBenchmark extends Benchmarks {
 

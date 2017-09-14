@@ -4,7 +4,7 @@ import com.nullpaperexception.test.java.streams.filtering.beans.Fruit;
 import java.util.List;
 
 /**
- * Temp calss for bench test purposes.
+ * Dummy processor made to analyse overhead.
  */
 public class DummyProcessor extends Processor {
 
