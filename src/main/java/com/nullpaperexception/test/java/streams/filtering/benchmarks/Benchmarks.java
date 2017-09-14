@@ -24,9 +24,9 @@ import org.openjdk.jmh.annotations.State;
 public abstract class Benchmarks {
     
     // Reasonable amounts to select in a list of fruits of similar size.
-    public static final int SMALL_NUMBER_OF_FRUITS = 20;
-    public static final int MEDIUM_NUMBER_OF_FRUITS = 200;
-    public static final int LARGE_NUMBER_OF_FRUITS = 2000;
+    public static final int SMALL_NUMBER_OF_FRUITS = 10;
+    public static final int MEDIUM_NUMBER_OF_FRUITS = 50;
+    public static final int LARGE_NUMBER_OF_FRUITS = 500;
         
     // Fruit types.
     protected static final int SIMPLE_FRUIT_TYPE = 0;
