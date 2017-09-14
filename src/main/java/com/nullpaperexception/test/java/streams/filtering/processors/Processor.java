@@ -31,6 +31,17 @@ public abstract class Processor {
     }
     
     /**
+     * Simple method checking if a fruit is not a pear.
+     * 
+     * @param fruit The checked fruit.
+     * 
+     * @return True if it's FruitType is OTHER, false otherwise.
+     */
+    protected static boolean isNotPear(Fruit fruit) {
+        return FruitType.OTHER.equals(fruit.getType());
+    }
+    
+    /**
      * Simple fruit size comparator.
      * 
      * @param f1 The first fruit.
