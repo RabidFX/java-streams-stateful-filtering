@@ -1,5 +1,6 @@
 package com.nullpaperexception.test.java.streams.filtering;
 
+import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -16,6 +17,7 @@ public class Main {
                 .warmupIterations(3)
                 .measurementIterations(5)
                 .forks(1)
+                .resultFormat(ResultFormatType.JSON)
                 .build();
 
         new Runner(opt).run();

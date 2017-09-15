@@ -135,6 +135,20 @@ public abstract class Benchmarks {
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void complexDownsizeMixed() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void simpleDownsizeMixed() {
+        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    }
+    
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void complexMediumMixed() {
         getTestedProcessor().process(getTestSuite(Generator.MEDIUM_MIXED_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
     } 
