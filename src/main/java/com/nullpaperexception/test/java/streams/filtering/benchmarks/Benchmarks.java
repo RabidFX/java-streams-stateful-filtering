@@ -37,141 +37,141 @@ public abstract class Benchmarks {
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleSmallNoPear() {
-        getTestedProcessor().process(getTestSuite(Generator.SMALL_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleSmallNoPear() {
+        return getTestedProcessor().process(getTestSuite(Generator.SMALL_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleSmallAllPears() {
-        getTestedProcessor().process(getTestSuite(Generator.SMALL_PEAR_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleSmallAllPears() {
+        return getTestedProcessor().process(getTestSuite(Generator.SMALL_PEAR_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleSmallMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.SMALL_MIXED_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleSmallMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.SMALL_MIXED_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     } 
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleMediumNoPear() {
-        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleMediumNoPear() {
+        return getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleMediumAllPears() {
-        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEAR_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleMediumAllPears() {
+        return getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEAR_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleMediumMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_MIXED_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleMediumMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.MEDIUM_MIXED_LIST, SIMPLE_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
     } 
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleLargeNoPear() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleLargeNoPear() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_PEARLESS_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleLargeAllPears() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEAR_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleLargeAllPears() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_PEAR_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleLargeMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleLargeMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, SIMPLE_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     } 
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexSmallNoPear() {
-        getTestedProcessor().process(getTestSuite(Generator.SMALL_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> complexSmallNoPear() {
+        return getTestedProcessor().process(getTestSuite(Generator.SMALL_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexSmallAllPears() {
-        getTestedProcessor().process(getTestSuite(Generator.SMALL_PEAR_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> complexSmallAllPears() {
+        return getTestedProcessor().process(getTestSuite(Generator.SMALL_PEAR_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexSmallMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.SMALL_MIXED_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> complexSmallMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.SMALL_MIXED_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     } 
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexMediumNoPear() {
-        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    public List<Fruit> complexMediumNoPear() {
+        return getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexMediumAllPears() {
-        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEAR_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    public List<Fruit> complexMediumAllPears() {
+        return getTestedProcessor().process(getTestSuite(Generator.MEDIUM_PEAR_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexDownsizeMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> complexDownsizeMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, COMPLEX_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void simpleDownsizeMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
+    public List<Fruit> simpleDownsizeMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, SIMPLE_FRUIT_TYPE), SMALL_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexMediumMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.MEDIUM_MIXED_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
+    public List<Fruit> complexMediumMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.MEDIUM_MIXED_LIST, COMPLEX_FRUIT_TYPE), MEDIUM_NUMBER_OF_FRUITS);
     } 
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexLargeNoPear() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    public List<Fruit> complexLargeNoPear() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_PEARLESS_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexLargeAllPears() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_PEAR_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    public List<Fruit> complexLargeAllPears() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_PEAR_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     }
     
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void complexLargeMixed() {
-        getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
+    public List<Fruit> complexLargeMixed() {
+        return getTestedProcessor().process(getTestSuite(Generator.LARGE_MIXED_LIST, COMPLEX_FRUIT_TYPE), LARGE_NUMBER_OF_FRUITS);
     }
     
     @Setup
